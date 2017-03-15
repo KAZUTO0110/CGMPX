@@ -14,7 +14,6 @@ public class PlayerJoinEventListener implements Listener {
 		// Vanishの適用
 		for (String p : VanishManager.vanisher){
 			e.getPlayer().hidePlayer(Bukkit.getPlayer(p));
-			e.setJoinMessage("");
 		}
 	}
 
