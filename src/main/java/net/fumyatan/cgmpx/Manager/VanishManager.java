@@ -57,24 +57,50 @@ public class VanishManager implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		if (command.getName().equals("fullvanish")){
 			if (sender.hasPermission("cgmpx.fullvanish")){
-				if (vanisher.contains(sender.getName())){
-					Player p = (Player) sender;
-					unVanish(p);
+				if (args.length == 0){
+					if (vanisher.contains(sender.getName())){
+						Player p = (Player) sender;
+						unVanish(p);
+					} else {
+						Player p = (Player) sender;
+						setfullVanish(p);
+					}
 				} else {
-					Player p = (Player) sender;
-					setfullVanish(p);
+					Player p = Bukkit.getPlayer(args[0]);
+					if (p != null){
+						if (vanisher.contains(args[0])){
+							unVanish(p);
+						} else {
+							setfullVanish(p);
+						}
+					} else {
+						PrefixAdder.sendMessage(sender, ChatColor.RED, "Player Not Found.");
+					}
 				}
 			} else {
 				PrefixAdder.sendMessage(sender, ChatColor.RED, "You don't have Permission.");
 			}
 		} else {
 			if (sender.hasPermission("cgmpx.vanish")){
-				if (vanisher.contains(sender.getName())){
-					Player p = (Player) sender;
-					unVanish(p);
+				if (args.length == 0){
+					if (vanisher.contains(sender.getName())){
+						Player p = (Player) sender;
+						unVanish(p);
+					} else {
+						Player p = (Player) sender;
+						setVanish(p);
+					}
 				} else {
-					Player p = (Player) sender;
-					setVanish(p);
+					Player p = Bukkit.getPlayer(args[0]);
+					if (p != null){
+						if (vanisher.contains(args[0])){
+							unVanish(p);
+						} else {
+							setVanish(p);
+						}
+					} else {
+						PrefixAdder.sendMessage(sender, ChatColor.RED, "Player Not Found.");
+					}
 				}
 			} else {
 				PrefixAdder.sendMessage(sender, ChatColor.RED, "You don't have Permission.");
