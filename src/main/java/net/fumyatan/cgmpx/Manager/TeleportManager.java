@@ -109,15 +109,28 @@ public class TeleportManager implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		if (command.getName().equals("tp")){
-			/*if (args.length == 4){
+			// TODO args.length == 4 -> 座標 / args.length == 2 -> 両方プレイヤーの場合 プレイヤー間テレポート
+			if (args.length == 4){
 				Player target = Bukkit.getPlayer(args[0]);
 				int x = Integer.parseInt(args[1]);
 				int y = Integer.parseInt(args[2]);
 				int z = Integer.parseInt(args[3]);
-
+				if (target != null){
+					Location loc = new Location(target.getWorld(), x, y, z);
+					safeTeleport(target, loc);
+				} else {
+					PrefixAdder.sendMessage(sender, ChatColor.RED, "Player Not Found.");
+				}
+			} else if (args.length == 2){
+				Player target = Bukkit.getPlayer(args[0]);
+				Player to = Bukkit.getPlayer(args[1]);
+				if (target != null && to != null){
+					safeTeleport(target, to.getLocation());
+				} else {
+					PrefixAdder.sendMessage(sender, ChatColor.RED, "Player Not Found.");
+				}
 			}
-			*/
-		} else {
+		} else if (command.getName().equals("tphere")){
 			if (sender.hasPermission("cgmp.tp.here")){
 				Player Sender = (Player) sender;
 				Player target = Bukkit.getPlayer(args[0]);
@@ -131,7 +144,6 @@ public class TeleportManager implements CommandExecutor {
 				PrefixAdder.sendMessage(sender, ChatColor.RED, "You don't have Permission.");
 			}
 		}
-		return false;
+		return true;
 	}
-
 }
