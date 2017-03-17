@@ -35,7 +35,7 @@ public class CGMPXCore extends JavaPlugin{
 		getCommand("vanish").setExecutor(new VanishManager());
 		getCommand("fullvanish").setExecutor(new VanishManager());
 		getCommand("freeze").setExecutor(new FreezeManager());
-		// getCommand("tp").setExecutor(new TeleportManager());
+		getCommand("tp").setExecutor(new TeleportManager());
 		getCommand("tphere").setExecutor(new TeleportManager());
 		getCommand("serverinfo").setExecutor(new ServerInfoSender());
 		getCommand("cgmpdebug").setExecutor(new DebugCommandListener());

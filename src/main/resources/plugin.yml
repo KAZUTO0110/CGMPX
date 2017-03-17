@@ -24,6 +24,8 @@ commands:
     description: Switched Vanish.
   freeze:
     description: Freeze players.
+  tp:
+    description: Teleport to Player.
   tphere:
     description: Teleport to You.
   serverinfo:
