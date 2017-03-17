@@ -49,6 +49,11 @@ public class DebugCommandListener implements CommandExecutor{
 					break;
 
 				default:
+					StringBuilder cmd = new StringBuilder();
+					for (int i = 1; i<args.length; i++){
+						cmd.append(args[i] + " ");
+					}
+					DebugConsole.sendCommand_bypass(cmd.toString(), p);
 					break;
 				}
 				break;
