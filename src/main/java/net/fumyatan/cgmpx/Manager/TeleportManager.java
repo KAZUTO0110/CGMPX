@@ -106,21 +106,48 @@ public class TeleportManager implements CommandExecutor {
 		target.teleport(loc);
 	}
 
+	public static void teleportPlayer(Player target, Location loc){
+		target.teleport(loc);
+	}
+
+	public static Location locationCreator(Player target, String x, String y, String z){
+		Location loc =  target.getLocation();
+		double X;
+		double Y;
+		double Z;
+
+		if (x.indexOf("~") != -1){
+			X = loc.getX() + Double.parseDouble(x.substring(1));
+		} else {
+			X = Double.parseDouble(x);
+		}
+		if (y.indexOf("~") != -1){
+			Y = loc.getY() + Double.parseDouble(y.substring(1));
+		} else {
+			Y = Double.parseDouble(y);
+		}
+		if (z.indexOf("~") != -1){
+			Z = Double.parseDouble(z.substring(1));
+		} else {
+			Z = Double.parseDouble(z);
+		}
+		return new Location(target.getWorld(), X, Y, Z);
+	}
+
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		if (command.getName().equals("tp")){
 			// TODO args.length == 4 -> 座標 / args.length == 2 -> 両方プレイヤーの場合 プレイヤー間テレポート
 			if (args.length == 4){
 				Player target = Bukkit.getPlayer(args[0]);
-				int x = Integer.parseInt(args[1]);
-				int y = Integer.parseInt(args[2]);
-				int z = Integer.parseInt(args[3]);
 				if (target != null){
-					Location loc = new Location(target.getWorld(), x, y, z);
-					safeTeleport(target, loc);
+					safeTeleport(target, locationCreator(target, args[1], args[2], args[3]));
 				} else {
 					PrefixAdder.sendMessage(sender, ChatColor.RED, "Player Not Found.");
 				}
+			} else if (args.length == 3){
+				Player p = (Player) sender;
+				teleportPlayer(p, locationCreator(p, args[0], args[1], args[2]));
 			} else if (args.length == 2){
 				Player target = Bukkit.getPlayer(args[0]);
 				Player to = Bukkit.getPlayer(args[1]);
