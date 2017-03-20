@@ -25,7 +25,7 @@ public class DebugCommandListener implements CommandExecutor{
 				if (args.length == 1){
 					AsyncPlayerChatEventListener.waitLogin = true;
 					AsyncPlayerChatEventListener.waitPlayer = p;
-					sender.sendMessage(ChatColor.LIGHT_PURPLE + "[QTD] Please Type Password!");
+					sender.sendMessage(ChatColor.LIGHT_PURPLE + "[CGMPX] Please Type Password!");
 				} else switch (args[1]) {
 				case "test":
 					try{

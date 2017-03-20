@@ -9,6 +9,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
 
+import net.fumyatan.cgmpx.Manager.AFKManager;
+
 public class PlayerMoveEventListener implements Listener {
 	public static List<Player> freezeuser = new ArrayList<>();
 
@@ -23,5 +25,7 @@ public class PlayerMoveEventListener implements Listener {
 			if (!to.equals(from))
 				e.setCancelled(true);
 		}
+
+		AFKManager.resetAFKTime(e.getPlayer());
 	}
 }

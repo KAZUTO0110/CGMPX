@@ -33,7 +33,6 @@ public class TeleportManager implements CommandExecutor {
 					if (!block.getType().equals(Material.AIR)){
 						if (block2.getType().equals(Material.AIR) & block3.getType().equals(Material.AIR)){
 							teleportPlayer(target, to.getWorld(), to.getBlockX(), y+1, to.getBlockZ());
-							PrefixAdder.sendMessage(target, "Teleport!");
 							safe = true;
 							return;
 						}
@@ -81,7 +80,6 @@ public class TeleportManager implements CommandExecutor {
 					if (!block.getType().equals(Material.AIR)){
 						if (block2.getType().equals(Material.AIR) & block3.getType().equals(Material.AIR)){
 							teleportPlayer(target, to.getWorld(), to.getBlockX(), y+1, to.getBlockZ());
-							PrefixAdder.sendMessage(target, "Teleport!");
 							safe = true;
 							return;
 						}
@@ -104,10 +102,12 @@ public class TeleportManager implements CommandExecutor {
 	public static void teleportPlayer(Player target, World world, int x, int y, int z){
 		Location loc = new Location(world, x, y, z);
 		target.teleport(loc);
+		PrefixAdder.sendMessage(target, "Teleport!");
 	}
 
 	public static void teleportPlayer(Player target, Location loc){
 		target.teleport(loc);
+		PrefixAdder.sendMessage(target, "Teleport!");
 	}
 
 	public static Location locationCreator(Player target, String x, String y, String z){
@@ -138,27 +138,56 @@ public class TeleportManager implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		if (command.getName().equals("tp")){
 			// TODO args.length == 4 -> 座標 / args.length == 2 -> 両方プレイヤーの場合 プレイヤー間テレポート
-			if (args.length == 4){
-				Player target = Bukkit.getPlayer(args[0]);
-				if (target != null){
-					safeTeleport(target, locationCreator(target, args[1], args[2], args[3]));
-				} else {
-					PrefixAdder.sendMessage(sender, ChatColor.RED, "Player Not Found.");
+			if (sender.hasPermission("cgmpx.tp")){
+				if (args.length == 4){
+					Player target = Bukkit.getPlayer(args[0]);
+					if (target != null){
+						safeTeleport(target, locationCreator(target, args[1], args[2], args[3]));
+					} else {
+						PrefixAdder.sendMessage(sender, ChatColor.RED, "Player Not Found.");
+					}
+				} else if (args.length == 3){
+					Player p = (Player) sender;
+					teleportPlayer(p, locationCreator(p, args[0], args[1], args[2]));
+				} else if (args.length == 2){
+					Player target = Bukkit.getPlayer(args[0]);
+					Player to = Bukkit.getPlayer(args[1]);
+					if (target != null && to != null){
+						safeTeleport(target, to.getLocation());
+					} else {
+						PrefixAdder.sendMessage(sender, ChatColor.RED, "Player Not Found.");
+					}
+				} else if (args.length == 1){
+					Player to = Bukkit.getPlayer(args[0]);
+					if (to != null){
+						Player p = (Player) sender;
+						teleportPlayer(p, to.getLocation());
+					} else {
+						PrefixAdder.sendMessage(sender, ChatColor.RED, "Player Not Found.");
+					}
 				}
-			} else if (args.length == 3){
-				Player p = (Player) sender;
-				teleportPlayer(p, locationCreator(p, args[0], args[1], args[2]));
-			} else if (args.length == 2){
-				Player target = Bukkit.getPlayer(args[0]);
-				Player to = Bukkit.getPlayer(args[1]);
-				if (target != null && to != null){
-					safeTeleport(target, to.getLocation());
-				} else {
-					PrefixAdder.sendMessage(sender, ChatColor.RED, "Player Not Found.");
+			} else {
+				PrefixAdder.sendMessage(sender, ChatColor.RED, "You don't have Permission.");
+			}
+		} else if (command.getName().equals("tpa")){
+			if (sender.hasPermission("cgmpx.tp.all")){
+				for (Player target : Bukkit.getOnlinePlayers()){
+					if (args.length == 3){
+						teleportPlayer(target, locationCreator(target, args[0], args[1], args[2]));
+					} else if (args.length == 1){
+						Player to = Bukkit.getPlayer(args[0]);
+						if (to != null){
+							safeTeleport(target, to.getLocation());
+						} else {
+							PrefixAdder.sendMessage(sender, ChatColor.RED, "Player Not Found.");
+						}
+					}
 				}
+			} else {
+				PrefixAdder.sendMessage(sender, ChatColor.RED, "You don't have Permission.");
 			}
 		} else if (command.getName().equals("tphere")){
-			if (sender.hasPermission("cgmp.tp.here")){
+			if (sender.hasPermission("cgmpx.tp.here")){
 				Player Sender = (Player) sender;
 				Player target = Bukkit.getPlayer(args[0]);
 

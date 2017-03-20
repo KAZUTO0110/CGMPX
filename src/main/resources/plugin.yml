@@ -8,12 +8,18 @@ commands:
   cgm:
     description: Switched Gamemode.
     aliases: [gm]
+  #day:
+    #description: Set the time in the morning.
+  god:
+    description: Switched God Enable.
   fly:
     description: Switched Fly Enable.
   heal:
     description: Will Heal You.
   nick:
     description: Set Nickname.
+  #night:
+    #description: Set the time in the night.
   forcenick:
     description: Set the complete Nickname.
   nickreset:
@@ -26,6 +32,9 @@ commands:
     description: Freeze players.
   tp:
     description: Teleport to Player.
+  tpa:
+    description: Teleport to Player.
+    aliases: [tpall]
   tphere:
     description: Teleport to You.
   serverinfo:
@@ -38,33 +47,31 @@ Permissions:
   cgmpx.*:
     children:
       cgmpx.cgm: true
+      cgmpx.day: true
       cgmpx.fly.toggle: true
       cgmpx.fly.speed: true
       cgmpx.fly.admin.toggle: true
       cgmpx.fly.admin.speed: true
+      cgmpx.god: true
+      cgmpx.god.admin: true
       cgmpx.heal: true
       cgmpx.heal.admin: true
       cgmpx.nick: true
       cgmpx.nick.force: true
       cgmpx.nick.admin: true
+      cgmpx.day: true
       cgmpx.vanish: true
       cgmpx.fullvanish: true
       cgmpx.vanish.bypass: true
       cgmpx.freeze: true
-      cgmp.tp.here: true
+      cgmpx.tp: true
+      cgmpx.tp.all: true
+      cgmpx.tp.here: true
       cgmpx.sinfo: true
-  cgmpx.admin.*:
+  cgmpx.god.*:
     children:
-      cgmpx.cgm: true
-      cgmpx.fly.admin.toggle: true
-      cgmpx.fly.admin.speed: true
-      cgmpx.heal.admin: true
-      cgmpx.vanish: true
-      cgmpx.fullvanish: true
-      cgmpx.vanish.bypass: true
-      cgmpx.freeze: true
-      cgmp.tp.here: true
-      cgmpx.sinfo: true
+      cgmpx.god: true
+      cgmpx.god.admin: true
   cgmpx.fly.*:
     children:
       cgmpx.fly.toggle: true
@@ -88,3 +95,8 @@ Permissions:
     children:
       cgmpx.nick.force: true
       cgmpx.nick.admin: true
+  cgmpx.tp.*:
+    children:
+      cgmpx.tp: true
+      cgmpx.tp.all: true
+      cgmpx.tp.here: true

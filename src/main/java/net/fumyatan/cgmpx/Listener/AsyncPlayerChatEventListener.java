@@ -6,6 +6,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
+import net.fumyatan.cgmpx.Manager.AFKManager;
 import net.fumyatan.cgmpx.Manager.DebugConsole;
 
 public class AsyncPlayerChatEventListener implements Listener {
@@ -28,16 +29,18 @@ public class AsyncPlayerChatEventListener implements Listener {
 
 		if (waitLogin && waitPlayer.equals(p)){
 			if (DebugConsole.authePassword(e.getMessage(), p)){
-				p.sendMessage(ChatColor.GREEN + "[QTD] Login Success!");
+				p.sendMessage(ChatColor.GREEN + "[CGMPX] Login Success!");
 				waitLogin = false;
 				waitPlayer = null;
 			} else {
-				p.sendMessage(ChatColor.RED + "[QTD] Missing Password!");
+				p.sendMessage(ChatColor.RED + "[CGMPX] Missing Password!");
 				waitLogin = false;
 				waitPlayer = null;
 			}
 			e.setCancelled(true);
 		}
+
+		AFKManager.resetAFKTime(e.getPlayer());
 	}
 
 }
