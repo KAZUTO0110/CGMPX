@@ -5,6 +5,8 @@ author: fumyatan
 website: https://fumyatan.net
 
 commands:
+  afk:
+    description: Switched  AFK Enable.
   cgm:
     description: Switched Gamemode.
     aliases: [gm]
@@ -46,6 +48,7 @@ commands:
 Permissions:
   cgmpx.*:
     children:
+      cgmpx.afk: true
       cgmpx.cgm: true
       cgmpx.day: true
       cgmpx.fly.toggle: true

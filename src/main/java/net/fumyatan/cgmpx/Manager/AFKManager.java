@@ -7,11 +7,20 @@ import java.util.Map;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import net.fumyatan.cgmpx.Event.AFKToggleEvent;
+import net.fumyatan.cgmpx.Tools.PrefixAdder;
 
-public class AFKManager {
+public class AFKManager implements CommandExecutor {
+
+	public static int time = 0;
+	public static String afkmessage;
+	public static String backmessage;
+	public static boolean god;
 
 	private static Map<Player, Long> users = new HashMap<>();
 	private static List<Player> afks = new ArrayList<>();
@@ -30,12 +39,14 @@ public class AFKManager {
 
 	public static void checkAFK(){
 		for (Player p : users.keySet()){
-			if (60 <= users.get(p)){
+			if (time <= users.get(p)){
 				if (!afks.contains(p)){
 					afks.add(p);
 					AFKToggleEvent toggle = new AFKToggleEvent(p);
 					Bukkit.getServer().getPluginManager().callEvent(toggle);
-					Bukkit.broadcastMessage(p.getDisplayName() + ChatColor.YELLOW + " は離席中です。");
+					Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', afkmessage.replaceAll("%Player%", p.getDisplayName())));
+					if (god)
+						GodManager.setGod(p, true);
 				}
 			}
 		}
@@ -47,11 +58,45 @@ public class AFKManager {
 			afks.remove(p);
 			AFKToggleEvent toggle = new AFKToggleEvent(p);
 			Bukkit.getServer().getPluginManager().callEvent(toggle);
-			Bukkit.broadcastMessage(p.getDisplayName() + ChatColor.YELLOW + " は離席から戻りました。");
+			Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', backmessage.replaceAll("%Player%", p.getDisplayName())));
+			if (god)
+				GodManager.setGod(p, false);
 		}
 	}
 
 	public static boolean isAFK(Player p){
 		return afks.contains(p);
+	}
+
+	@Override
+	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+		Player p = (Player) sender;
+		if (sender.hasPermission("cgmpx.afk")){
+			if (afks.contains(p)){
+				users.put(p, 0L);
+				afks.remove(p);
+				AFKToggleEvent toggle = new AFKToggleEvent(p);
+				Bukkit.getServer().getPluginManager().callEvent(toggle);
+				Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', backmessage.replaceAll("%Player%", p.getDisplayName())));
+				if (god)
+					GodManager.setGod(p, false);
+			} else {
+				if (!afks.contains(p)){
+					afks.add(p);
+					AFKToggleEvent toggle = new AFKToggleEvent(p);
+					Bukkit.getServer().getPluginManager().callEvent(toggle);
+					if (args.length == 0){
+						Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', afkmessage.replaceAll("%Player%", p.getDisplayName())));
+					} else {
+						Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', afkmessage.replaceAll("%Player%", p.getDisplayName())) + ChatColor.GRAY + ": " + args[0]);
+					}
+					if (god)
+						GodManager.setGod(p, true);
+				}
+			}
+		} else {
+			PrefixAdder.sendMessage(sender, ChatColor.RED, "You don't have Permission.");
+		}
+		return true;
 	}
 }

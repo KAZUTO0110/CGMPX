@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -27,10 +28,12 @@ public class GodManager implements CommandExecutor {
 					god.add(p);
 					PrefixAdder.sendMessage(p, "You became a god.");
 				}
+			} else {
+				PrefixAdder.sendMessage(sender, ChatColor.RED, "You don't have Permission.");
 			}
 		} else {
 			if (sender.hasPermission("cgmpx.god.admin")){
-			Player target = Bukkit.getPlayer(args[0]);
+				Player target = Bukkit.getPlayer(args[0]);
 				if (target != null){
 					if (god.contains(target)){
 						god.remove(target);
@@ -41,6 +44,8 @@ public class GodManager implements CommandExecutor {
 						PrefixAdder.sendMessage(target, "You became a god.");
 					}
 				}
+			} else {
+				PrefixAdder.sendMessage(sender, ChatColor.RED, "You don't have Permission.");
 			}
 		}
 		return true;
@@ -48,6 +53,17 @@ public class GodManager implements CommandExecutor {
 
 	public static boolean isGod(Player player){
 		return god.contains(player);
+	}
+
+	public static void setGod(Player target, boolean status){
+		if (!status){
+			god.remove(target);
+			resetNoDamageTicks(target);
+			PrefixAdder.sendMessage(target, "You are no longer a god.");
+		} else {
+			god.add(target);
+			PrefixAdder.sendMessage(target, "You became a god.");
+		}
 	}
 
 	public static void setNoDamageTicks(){
@@ -58,6 +74,12 @@ public class GodManager implements CommandExecutor {
 
 	public static void resetNoDamageTicks(Player target){
 		target.setNoDamageTicks(20);
+	}
+
+	public static void resetAllPlayerNoDamageTicks(){
+		for (Player p : god){
+			p.setNoDamageTicks(20);
+		}
 	}
 
 }

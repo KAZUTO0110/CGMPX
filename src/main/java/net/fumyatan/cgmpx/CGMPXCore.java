@@ -8,6 +8,7 @@ import net.fumyatan.cgmpx.Listener.DebugCommandListener;
 import net.fumyatan.cgmpx.Listener.PlayerJoinEventListener;
 import net.fumyatan.cgmpx.Listener.PlayerMoveEventListener;
 import net.fumyatan.cgmpx.Listener.PlayerQuitEventListener;
+import net.fumyatan.cgmpx.Manager.AFKManager;
 import net.fumyatan.cgmpx.Manager.FlyManager;
 import net.fumyatan.cgmpx.Manager.FreezeManager;
 import net.fumyatan.cgmpx.Manager.GamemodeManager;
@@ -26,8 +27,15 @@ public class CGMPXCore extends JavaPlugin{
 	@Override
 	public void onEnable(){
 		plugin = this;
+		// Configのロード
+		saveDefaultConfig();
+		AFKManager.time = getConfig().getInt("AFKSettings.AFKTime");
+		AFKManager.afkmessage = getConfig().getString("AFKSettings.AFKMessage");
+		AFKManager.backmessage = getConfig().getString("AFKSettings.BackMessage");
+		AFKManager.god = getConfig().getBoolean("AFKSettings.EnableGodMode");
 
 		// コマンド登録
+		getCommand("afk").setExecutor(new AFKManager());
 		getCommand("cgm").setExecutor(new GamemodeManager());
 		//getCommand("day").setExecutor(new TimeManager());
 		getCommand("fly").setExecutor(new FlyManager());
@@ -58,6 +66,10 @@ public class CGMPXCore extends JavaPlugin{
 
 	@Override
 	public void onDisable(){
+		// タスクの終了
 		getServer().getScheduler().cancelTasks(plugin);
+
+		// 初期化
+		GodManager.resetAllPlayerNoDamageTicks();
 	}
 }

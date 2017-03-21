@@ -1,0 +1,16 @@
+###################
+#+++++++++++++++++#
+#+  CGMPX Config +#
+#+++++++++++++++++#
+###################
+
+AFKSettings:
+    # AFKまでの時間を設定(秒)
+    AFKTime: 60
+
+    # AFKMassage %Player% でプレイヤー名を代入
+    AFKMessage: "%Player% &eは離席中です。"
+    BackMessage: "%Player% &eが離席から戻りました。"
+
+    # AFK時にダメージを受けないようにするか
+    EnableGodMode: true
