@@ -40,13 +40,15 @@ public class AFKManager implements CommandExecutor {
 	public static void checkAFK(){
 		for (Player p : users.keySet()){
 			if (time <= users.get(p)){
-				if (!afks.contains(p)){
-					afks.add(p);
-					AFKToggleEvent toggle = new AFKToggleEvent(p);
-					Bukkit.getServer().getPluginManager().callEvent(toggle);
-					Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', afkmessage.replaceAll("%Player%", p.getDisplayName())));
-					if (god)
-						GodManager.setGod(p, true);
+				if (!VanishManager.vanisher.contains(p.getName())){
+					if (!afks.contains(p)){
+						afks.add(p);
+						AFKToggleEvent toggle = new AFKToggleEvent(p);
+						Bukkit.getServer().getPluginManager().callEvent(toggle);
+						Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', afkmessage.replaceAll("%Player%", p.getDisplayName())));
+						if (god)
+							GodManager.setGod(p, true);
+					}
 				}
 			}
 		}

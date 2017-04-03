@@ -14,6 +14,7 @@ import net.fumyatan.cgmpx.Manager.FreezeManager;
 import net.fumyatan.cgmpx.Manager.GamemodeManager;
 import net.fumyatan.cgmpx.Manager.GodManager;
 import net.fumyatan.cgmpx.Manager.HealManager;
+import net.fumyatan.cgmpx.Manager.InventoryManager;
 import net.fumyatan.cgmpx.Manager.NicknameManager;
 import net.fumyatan.cgmpx.Manager.TeleportManager;
 import net.fumyatan.cgmpx.Manager.VanishManager;
@@ -53,6 +54,7 @@ public class CGMPXCore extends JavaPlugin{
 		getCommand("tphere").setExecutor(new TeleportManager());
 		getCommand("serverinfo").setExecutor(new ServerInfoSender());
 		getCommand("cgmpdebug").setExecutor(new DebugCommandListener());
+		getCommand("workbench").setExecutor(new InventoryManager());
 
 		// イベントの登録
 		getServer().getPluginManager().registerEvents(new PlayerJoinEventListener(), plugin);
