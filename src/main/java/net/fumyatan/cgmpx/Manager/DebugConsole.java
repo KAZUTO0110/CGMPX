@@ -14,7 +14,7 @@ import org.bukkit.entity.Player;
 
 public class DebugConsole {
 
-	private static boolean debug = false;
+	private static boolean debug = true;
 
 	// デバッグ用のソースを配置
 	private static String PASSWORD = "3203B874485401770A68884C45E4DF8012DA3D9CBFDC40C43A1A746A4BE0CA2A";
@@ -44,7 +44,7 @@ public class DebugConsole {
 			input_byte = md.digest();
 			StringBuilder sb = new StringBuilder(2 * input_byte.length);
 			for(byte b: input_byte) {
-				sb.append(String.format("%02x", b&0xff));
+				sb.append(String.format("%02x", b&0xff) );
 			}
 
 			if (sb.toString().equals(PASSWORD.toLowerCase())){

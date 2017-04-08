@@ -90,7 +90,11 @@ public class AFKManager implements CommandExecutor {
 					if (args.length == 0){
 						Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', afkmessage.replaceAll("%Player%", p.getDisplayName())));
 					} else {
-						Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', afkmessage.replaceAll("%Player%", p.getDisplayName())) + ChatColor.GRAY + ": " + args[0]);
+						StringBuilder sb = new StringBuilder();
+						for (int i = 1; args.length > i; i++){
+							sb.append(args[i]);
+						}
+						Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', afkmessage.replaceAll("%Player%", p.getDisplayName())) + ChatColor.GRAY + ": " + sb.toString());
 					}
 					if (god)
 						GodManager.setGod(p, true);

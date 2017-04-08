@@ -18,6 +18,7 @@ import net.fumyatan.cgmpx.Manager.InventoryManager;
 import net.fumyatan.cgmpx.Manager.NicknameManager;
 import net.fumyatan.cgmpx.Manager.TeleportManager;
 import net.fumyatan.cgmpx.Manager.VanishManager;
+import net.fumyatan.cgmpx.Manager.WhoisManager;
 import net.fumyatan.cgmpx.Sender.ServerInfoSender;
 import net.fumyatan.cgmpx.Timer.Timer;
 
@@ -54,6 +55,7 @@ public class CGMPXCore extends JavaPlugin{
 		getCommand("tphere").setExecutor(new TeleportManager());
 		getCommand("serverinfo").setExecutor(new ServerInfoSender());
 		getCommand("cgmpdebug").setExecutor(new DebugCommandListener());
+		getCommand("whois").setExecutor(new WhoisManager());
 		getCommand("workbench").setExecutor(new InventoryManager());
 
 		// イベントの登録

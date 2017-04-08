@@ -37,6 +37,9 @@ Server Manage Plugin
 	  cgmpdebug:
 	    description: PluginDebugCommand.
 	    aliases: [dbg]
+	  whois:
+	    description: Get Player Info.
+	    aliases: [ws]
 	  workbench:
 	    description: Open Workbench.
 	    aliases: [wb, wbc]
@@ -68,6 +71,7 @@ Server Manage Plugin
 	      cgmpx.tp.here: true
 	      cgmpx.sinfo: true
 	      cgmpx.wbc: true
+	      cgmpx.whois: true
 	  cgmpx.god.*:
 	    children:
 	      cgmpx.god: true
@@ -100,3 +104,7 @@ Server Manage Plugin
 	      cgmpx.tp: true
 	      cgmpx.tp.all: true
 	      cgmpx.tp.here: true
+
+### LICENSE
+![GNU License Logo](https://www.gnu.org/graphics/gplv3-127x51.png)<br>
+LICENSED BY GNU General Public License

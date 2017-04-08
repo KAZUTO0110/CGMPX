@@ -20,9 +20,11 @@ public class FreezeManager implements CommandExecutor {
 				if (target != null){
 					if (PlayerMoveEventListener.freezeuser.contains(target)){
 						PlayerMoveEventListener.freezeuser.remove(target);
+						target.setAllowFlight(false);
 						PrefixAdder.sendMessage(target, "You were released from freeze.");
 					} else {
 						PlayerMoveEventListener.freezeuser.add(target);
+						target.setAllowFlight(true);
 						PrefixAdder.sendMessage(target, "You have been frozen!");
 					}
 				} else {
