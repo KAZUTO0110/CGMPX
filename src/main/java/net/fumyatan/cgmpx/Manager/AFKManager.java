@@ -21,6 +21,7 @@ public class AFKManager implements CommandExecutor {
 	public static String afkmessage;
 	public static String backmessage;
 	public static boolean god;
+	public static boolean antipush;
 
 	private static Map<Player, Long> users = new HashMap<>();
 	private static List<Player> afks = new ArrayList<>();
@@ -56,7 +57,7 @@ public class AFKManager implements CommandExecutor {
 
 	public static void resetAFKTime(Player p){
 		users.put(p, 0L);
-		if (afks.contains(p)){
+		if ((!VanishManager.vanisher.contains(p.getName())) && afks.contains(p)){
 			afks.remove(p);
 			AFKToggleEvent toggle = new AFKToggleEvent(p);
 			Bukkit.getServer().getPluginManager().callEvent(toggle);
@@ -91,7 +92,7 @@ public class AFKManager implements CommandExecutor {
 						Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', afkmessage.replaceAll("%Player%", p.getDisplayName())));
 					} else {
 						StringBuilder sb = new StringBuilder();
-						for (int i = 1; args.length > i; i++){
+						for (int i = 0; args.length > i; i++){
 							sb.append(args[i]);
 						}
 						Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', afkmessage.replaceAll("%Player%", p.getDisplayName())) + ChatColor.GRAY + ": " + sb.toString());
