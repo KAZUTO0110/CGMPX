@@ -7,6 +7,8 @@ website: https://fumyatan.net
 commands:
   afk:
     description: Switched  AFK Enable.
+  back:
+    description: Teleport to LastActionPoint.
   cgm:
     description: Switched Gamemode.
     aliases: [gm]
@@ -55,6 +57,7 @@ Permissions:
   cgmpx.*:
     children:
       cgmpx.afk: true
+      cgmpx.back: true
       cgmpx.cgm: true
       cgmpx.day: true
       cgmpx.fly.toggle: true

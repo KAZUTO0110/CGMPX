@@ -4,6 +4,8 @@ Server Manage Plugin
 ## Command
 	  afk:
 	    description: Switched  AFK Enable.
+	  back:
+		description: Teleport to LastActionPoint.
 	  cgm:
 	    description: Switched Gamemode.
 	    aliases: [gm]
@@ -48,6 +50,7 @@ Server Manage Plugin
 	  cgmpx.*:
 	    children:
 	      cgmpx.afk: true
+	      cgmpx.back: true
 	      cgmpx.cgm: true
 	      cgmpx.day: true
 	      cgmpx.fly.toggle: true

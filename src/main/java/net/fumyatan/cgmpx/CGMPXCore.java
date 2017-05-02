@@ -5,10 +5,13 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import net.fumyatan.cgmpx.Listener.AsyncPlayerChatEventListener;
 import net.fumyatan.cgmpx.Listener.DebugCommandListener;
+import net.fumyatan.cgmpx.Listener.PlayerDeathEventListener;
 import net.fumyatan.cgmpx.Listener.PlayerJoinEventListener;
 import net.fumyatan.cgmpx.Listener.PlayerMoveEventListener;
 import net.fumyatan.cgmpx.Listener.PlayerQuitEventListener;
+import net.fumyatan.cgmpx.Listener.PlayerTeleportEventListener;
 import net.fumyatan.cgmpx.Manager.AFKManager;
+import net.fumyatan.cgmpx.Manager.BackManager;
 import net.fumyatan.cgmpx.Manager.FlyManager;
 import net.fumyatan.cgmpx.Manager.FreezeManager;
 import net.fumyatan.cgmpx.Manager.GamemodeManager;
@@ -39,6 +42,7 @@ public class CGMPXCore extends JavaPlugin{
 
 		// コマンド登録
 		getCommand("afk").setExecutor(new AFKManager());
+		getCommand("back").setExecutor(new BackManager());
 		getCommand("cgm").setExecutor(new GamemodeManager());
 		//getCommand("day").setExecutor(new TimeManager());
 		getCommand("fly").setExecutor(new FlyManager());
@@ -60,9 +64,11 @@ public class CGMPXCore extends JavaPlugin{
 		getCommand("workbench").setExecutor(new InventoryManager());
 
 		// イベントの登録
+		getServer().getPluginManager().registerEvents(new PlayerDeathEventListener(), plugin);
 		getServer().getPluginManager().registerEvents(new PlayerJoinEventListener(), plugin);
 		getServer().getPluginManager().registerEvents(new PlayerQuitEventListener(), plugin);
 		getServer().getPluginManager().registerEvents(new PlayerMoveEventListener(), plugin);
+		getServer().getPluginManager().registerEvents(new PlayerTeleportEventListener(), plugin);
 		getServer().getPluginManager().registerEvents(new AsyncPlayerChatEventListener(), plugin);
 
 		// Runnableの実行
