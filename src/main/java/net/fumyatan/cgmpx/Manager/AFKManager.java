@@ -49,6 +49,8 @@ public class AFKManager implements CommandExecutor {
 						Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', afkmessage.replaceAll("%Player%", p.getDisplayName())));
 						if (god)
 							GodManager.setGod(p, true);
+						if (antipush)
+				            FreezeManager.setunfreeze(p);
 					}
 				}
 			}
@@ -64,6 +66,8 @@ public class AFKManager implements CommandExecutor {
 			Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', backmessage.replaceAll("%Player%", p.getDisplayName())));
 			if (god)
 				GodManager.setGod(p, false);
+			if (antipush)
+				FreezeManager.setfreeze(p);
 		}
 	}
 
@@ -83,6 +87,8 @@ public class AFKManager implements CommandExecutor {
 				Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', backmessage.replaceAll("%Player%", p.getDisplayName())));
 				if (god)
 					GodManager.setGod(p, false);
+				if (antipush)
+				    FreezeManager.setfreeze(p);
 			} else {
 				if (!afks.contains(p)){
 					afks.add(p);
@@ -99,6 +105,8 @@ public class AFKManager implements CommandExecutor {
 					}
 					if (god)
 						GodManager.setGod(p, true);
+				    if (antipush)
+				        FreezeManager.setunfreeze(p);
 				}
 			}
 		} else {

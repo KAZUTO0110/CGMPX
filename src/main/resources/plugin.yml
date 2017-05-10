@@ -11,7 +11,7 @@ commands:
     description: Teleport to LastActionPoint.
   cgm:
     description: Switched Gamemode.
-    aliases: [gm]
+    aliases: [gm, gms]
   #day:
     #description: Set the time in the morning.
   god:

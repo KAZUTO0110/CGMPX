@@ -131,7 +131,7 @@ public class GamemodeManager implements CommandExecutor {
 					PrefixAdder.sendMessage(sender, "Successfully changed game mode.");
 					break;
 				}
-			}else {
+			} else {
 				PrefixAdder.sendMessage(sender, ChatColor.RED, "You don't have Permission.");
 			}
 		}
