@@ -36,16 +36,14 @@ public class FreezeManager implements CommandExecutor {
 		}
 		return true;
 	}
-	
+
 	public static void setfreeze(Player target){
 	   PlayerMoveEventListener.freezeuser.add(target);
-	   target.setAllowFlight(true);
 	   PrefixAdder.sendMessage(target, "You have been frozen!");
     }
-    
+
     public static void setunfreeze(Player target){
         PlayerMoveEventListener.freezeuser.remove(target);
-        target.setAllowFlight(false);
         PrefixAdder.sendMessage(target, "You were released from freeze.");
     }
 

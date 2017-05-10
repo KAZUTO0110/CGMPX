@@ -150,8 +150,15 @@ public class TeleportManager implements CommandExecutor {
 					Player p = (Player) sender;
 					teleportPlayer(p, locationCreator(p, args[0], args[1], args[2]));
 				} else if (args.length == 2){
+					Player p = (Player) sender;
 					Player target = Bukkit.getPlayer(args[0]);
 					Player to = Bukkit.getPlayer(args[1]);
+					if (to.equals(p)){
+						if (!sender.hasPermission("cgmpx.tp.here")){
+							PrefixAdder.sendMessage(sender, ChatColor.RED, "You don't have Permission.");
+							return true;
+						}
+					}
 					if (target != null && to != null){
 						safeTeleport(target, to.getLocation());
 					} else {
@@ -161,7 +168,7 @@ public class TeleportManager implements CommandExecutor {
 					Player to = Bukkit.getPlayer(args[0]);
 					if (to != null){
 						Player p = (Player) sender;
-						teleportPlayer(p, to.getLocation());
+						safeTeleport(p, to.getLocation());
 					} else {
 						PrefixAdder.sendMessage(sender, ChatColor.RED, "Player Not Found.");
 					}

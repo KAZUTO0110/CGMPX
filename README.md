@@ -8,7 +8,7 @@ Server Manage Plugin
 		description: Teleport to LastActionPoint.
 	  cgm:
 	    description: Switched Gamemode.
-	    aliases: [gm]
+	    aliases: [gm, gms]
 	  god:
 	    description: Switched God Enable.
 	  fly:

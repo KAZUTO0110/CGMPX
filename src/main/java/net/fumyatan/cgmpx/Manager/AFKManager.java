@@ -50,7 +50,7 @@ public class AFKManager implements CommandExecutor {
 						if (god)
 							GodManager.setGod(p, true);
 						if (antipush)
-				            FreezeManager.setunfreeze(p);
+							FreezeManager.setfreeze(p);
 					}
 				}
 			}
@@ -67,7 +67,7 @@ public class AFKManager implements CommandExecutor {
 			if (god)
 				GodManager.setGod(p, false);
 			if (antipush)
-				FreezeManager.setfreeze(p);
+				FreezeManager.setunfreeze(p);
 		}
 	}
 
@@ -88,7 +88,7 @@ public class AFKManager implements CommandExecutor {
 				if (god)
 					GodManager.setGod(p, false);
 				if (antipush)
-				    FreezeManager.setfreeze(p);
+					FreezeManager.setunfreeze(p);
 			} else {
 				if (!afks.contains(p)){
 					afks.add(p);
@@ -105,8 +105,8 @@ public class AFKManager implements CommandExecutor {
 					}
 					if (god)
 						GodManager.setGod(p, true);
-				    if (antipush)
-				        FreezeManager.setunfreeze(p);
+					if (antipush)
+					FreezeManager.setfreeze(p);
 				}
 			}
 		} else {
