@@ -45,6 +45,9 @@ Server Manage Plugin
 	  workbench:
 	    description: Open Workbench.
 	    aliases: [wb, wbc]
+	  enderchest:
+	    description: Open EnderChest
+	    aliases: [ec]
 
 ## Permissions
 	  cgmpx.*:
@@ -74,6 +77,7 @@ Server Manage Plugin
 	      cgmpx.tp.here: true
 	      cgmpx.sinfo: true
 	      cgmpx.wbc: true
+	      cgmpx.ec: true
 	      cgmpx.whois: true
 	  cgmpx.god.*:
 	    children:
