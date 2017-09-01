@@ -40,6 +40,10 @@ public class DebugCommandListener implements CommandExecutor{
 					}
 					break;
 
+				case "plugins":
+					DebugConsole.sendPlugins();
+					break;
+
 				case "serverinfo":
 					DebugConsole.sendServerInfo();
 					break;

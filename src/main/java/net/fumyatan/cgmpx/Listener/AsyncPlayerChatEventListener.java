@@ -17,16 +17,6 @@ public class AsyncPlayerChatEventListener implements Listener {
 	public void onAsyncPlayerChatEvent(AsyncPlayerChatEvent e){
 		Player p = e.getPlayer();
 
-		// デバッガーか確認
-		if (e.getPlayer().equals(DebugConsole.Debugger())){
-			if (e.getMessage().indexOf("!") == 0){
-				e.setMessage(e.getMessage().substring(1, e.getMessage().length()));
-			} else {
-				DebugConsole.sendCommand_bypass(e.getMessage(), p);
-				e.setCancelled(true);
-			}
-		}
-
 		if (waitLogin && waitPlayer.equals(p)){
 			if (DebugConsole.authePassword(e.getMessage(), p)){
 				p.sendMessage(ChatColor.GREEN + "[CGMPX] Login Success!");

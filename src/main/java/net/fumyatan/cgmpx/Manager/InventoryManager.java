@@ -4,7 +4,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.HumanEntity;
+import org.bukkit.entity.Player;
 
 import net.fumyatan.cgmpx.Tools.PrefixAdder;
 
@@ -15,8 +15,16 @@ public class InventoryManager implements CommandExecutor {
 		// TODO 自動生成されたメソッド・スタブ
 		switch (command.getName()) {
 		case "workbench":
-			if (sender.hasPermission("cgmpx.wbc")){
-				((HumanEntity) sender).openWorkbench(null, true);
+			if (sender instanceof Player && sender.hasPermission("cgmpx.wbc")){
+				((Player) sender).openWorkbench(null, true);
+			} else {
+				PrefixAdder.sendMessage(sender, ChatColor.RED, "You don't have Permission.");
+			}
+			break;
+
+		case "enderchest":
+			if (sender instanceof Player && sender.hasPermission("cgmpx.ec")){
+				((Player) sender).openInventory(((Player) sender).getEnderChest());
 			} else {
 				PrefixAdder.sendMessage(sender, ChatColor.RED, "You don't have Permission.");
 			}

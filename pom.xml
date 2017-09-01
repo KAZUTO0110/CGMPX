@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.fumyatan</groupId>
   <artifactId>CGMPX</artifactId>
-  <version>0.0.21-SNAPSHOT</version>
+  <version>0.0.22-SNAPSHOT</version>
 
   <build>
 	<plugins>
@@ -45,14 +45,14 @@
 	<dependency>
 		<groupId>org.spigotmc</groupId>
 		<artifactId>spigot-api</artifactId>
-		<version>1.10.2-R0.1-SNAPSHOT</version>
+		<version>1.12.1-R0.1-SNAPSHOT</version>
 		<scope>provided</scope>
 	</dependency>
 	<!--Bukkit API-->
 	<dependency>
 		<groupId>org.bukkit</groupId>
 		<artifactId>bukkit</artifactId>
-		<version>1.10.2-R0.1-SNAPSHOT</version>
+		<version>1.12.1-R0.1-SNAPSHOT</version>
 		<scope>provided</scope>
 	</dependency>
 	<dependency>

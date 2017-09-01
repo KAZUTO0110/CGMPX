@@ -31,7 +31,6 @@ public class AFKManager implements CommandExecutor {
 			if (users.get(p) != null){
 				long sec = users.get(p);
 				users.put(p, sec + 1);
-				// DebugConsole.receiveInfoLog(ChatColor.YELLOW + "[AFKInfo] " + ChatColor.RESET + p.getDisplayName() + ChatColor.GOLD + " Time: " + sec);
 			} else {
 				users.put(p, 1L);
 			}
@@ -49,8 +48,10 @@ public class AFKManager implements CommandExecutor {
 						Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', afkmessage.replaceAll("%Player%", p.getDisplayName())));
 						if (god)
 							GodManager.setGod(p, true);
+						/*
 						if (antipush)
 							FreezeManager.setfreeze(p);
+						*/
 					}
 				}
 			}
@@ -66,8 +67,10 @@ public class AFKManager implements CommandExecutor {
 			Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', backmessage.replaceAll("%Player%", p.getDisplayName())));
 			if (god)
 				GodManager.setGod(p, false);
+			/*
 			if (antipush)
 				FreezeManager.setunfreeze(p);
+			*/
 		}
 	}
 

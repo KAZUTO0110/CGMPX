@@ -11,6 +11,7 @@ import java.util.regex.Pattern;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.Plugin;
 
 public class DebugConsole {
 
@@ -144,6 +145,26 @@ public class DebugConsole {
 			debugger.sendMessage(ChatColor.GOLD + "OS: " + ChatColor.RESET + System.getProperty("os.name") + ChatColor.GRAY + " (" + System.getProperty("os.arch") + ")");
 			debugger.sendMessage(ChatColor.GOLD + "RAM: " + ChatColor.RESET + usage.getUsed()/1024/1024 + "MB/" + usage.getInit()/1024/1024 + "MB");
 			debugger.sendMessage(ChatColor.GOLD + "Java: " + ChatColor.RESET + System.getProperty("java.version") + " " + System.getProperty("java vendor"));
+		}
+	}
+
+	/**
+	 * プラグイン一覧を送信
+	 */
+	public static void sendPlugins(){
+		if (debugger != null){
+			StringBuilder pls = new StringBuilder();
+			int amount = 0;
+			for (Plugin pl : Bukkit.getPluginManager().getPlugins()){
+				if (pl.isEnabled()){
+					pls.append("&a" + pl.getName() + "&f, ");
+				} else {
+					pls.append("&c" + pl.getName() + "&f, ");
+				}
+				amount ++;
+			}
+			String cpls = ChatColor.translateAlternateColorCodes('&', pls.toString());
+			debugger.sendMessage("Plugins (" + amount + "): " + cpls);
 		}
 	}
 
