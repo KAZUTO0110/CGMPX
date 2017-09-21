@@ -58,30 +58,30 @@ public class GamemodeManager implements CommandExecutor {
 						PrefixAdder.sendMessage(sender, ChatColor.RED, "Player Not Found.");
 					}
 				} else switch (args[0].toLowerCase()){
-				case "creative":
-				case "1":
-				case "c":
-					((Player) sender).setGameMode(GameMode.CREATIVE);
-					PrefixAdder.sendMessage(sender, "Successfully changed game mode.");
-					break;
-				case "survival":
-				case "0":
-				case "s":
-					((Player) sender).setGameMode(GameMode.SURVIVAL);
-					PrefixAdder.sendMessage(sender, "Successfully changed game mode.");
-					break;
-				case "spectator":
-				case "3":
-				case "sp":
-					((Player) sender).setGameMode(GameMode.SPECTATOR);
-					PrefixAdder.sendMessage(sender, "Successfully changed game mode.");
-					break;
-				case "adventure":
-				case "2":
-				case "a":
-					((Player) sender).setGameMode(GameMode.ADVENTURE);
-					PrefixAdder.sendMessage(sender, "Successfully changed game mode.");
-					break;
+					case "creative":
+					case "1":
+					case "c":
+						((Player) sender).setGameMode(GameMode.CREATIVE);
+						PrefixAdder.sendMessage(sender, "Successfully changed game mode.");
+						break;
+					case "survival":
+					case "0":
+					case "s":
+						((Player) sender).setGameMode(GameMode.SURVIVAL);
+						PrefixAdder.sendMessage(sender, "Successfully changed game mode.");
+						break;
+					case "spectator":
+					case "3":
+					case "sp":
+						((Player) sender).setGameMode(GameMode.SPECTATOR);
+						PrefixAdder.sendMessage(sender, "Successfully changed game mode.");
+						break;
+					case "adventure":
+					case "2":
+					case "a":
+						((Player) sender).setGameMode(GameMode.ADVENTURE);
+						PrefixAdder.sendMessage(sender, "Successfully changed game mode.");
+						break;
 				}
 			} else {
 				PrefixAdder.sendMessage(sender, ChatColor.RED, "You don't have Permission.");

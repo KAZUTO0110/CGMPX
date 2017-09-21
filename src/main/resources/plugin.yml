@@ -12,8 +12,8 @@ commands:
   cgm:
     description: Switched Gamemode.
     aliases: [gm, gms]
-  #day:
-    #description: Set the time in the morning.
+  day:
+    description: Set the time in the morning.
   god:
     description: Switched God Enable.
   fly:
@@ -22,8 +22,8 @@ commands:
     description: Will Heal You.
   nick:
     description: Set Nickname.
-  #night:
-    #description: Set the time in the night.
+  night:
+    description: Set the time in the night.
   forcenick:
     description: Set the complete Nickname.
   nickreset:
@@ -43,9 +43,6 @@ commands:
     description: Teleport to You.
   serverinfo:
     description: Show ServerInfo.
-  cgmpdebug:
-    description: PluginDebugCommand.
-    aliases: [dbg]
   workbench:
     description: Open Workbench.
     aliases: [wb, wbc]
