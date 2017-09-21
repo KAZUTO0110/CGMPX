@@ -29,51 +29,27 @@ public class GamemodeManager implements CommandExecutor {
 					Player target = Bukkit.getPlayer(args[1]);
 					if (target != null){
 						switch (args[0].toLowerCase()){
+						case "creative":
+						case "1":
 						case "c":
 							target.setGameMode(GameMode.CREATIVE);
 							PrefixAdder.sendMessage(sender, "Successfully changed game mode.");
 							break;
+						case "survival":
+						case "0":
 						case "s":
 							target.setGameMode(GameMode.SURVIVAL);
 							PrefixAdder.sendMessage(sender, "Successfully changed game mode.");
 							break;
+						case "spectator":
+						case "3":
 						case "sp":
 							target.setGameMode(GameMode.SPECTATOR);
 							PrefixAdder.sendMessage(sender, "Successfully changed game mode.");
 							break;
-						case "a":
-							target.setGameMode(GameMode.ADVENTURE);
-							PrefixAdder.sendMessage(sender, "Successfully changed game mode.");
-							break;
-						case "1":
-							target.setGameMode(GameMode.CREATIVE);
-							PrefixAdder.sendMessage(sender, "Successfully changed game mode.");
-							break;
-						case "0":
-							target.setGameMode(GameMode.SURVIVAL);
-							PrefixAdder.sendMessage(sender, "Successfully changed game mode.");
-							break;
-						case "3":
-							target.setGameMode(GameMode.SPECTATOR);
-							PrefixAdder.sendMessage(sender, "Successfully changed game mode.");
-							break;
-						case "2":
-							target.setGameMode(GameMode.ADVENTURE);
-							PrefixAdder.sendMessage(sender, "Successfully changed game mode.");
-							break;
-						case "creative":
-							target.setGameMode(GameMode.CREATIVE);
-							PrefixAdder.sendMessage(sender, "Successfully changed game mode.");
-							break;
-						case "survival":
-							target.setGameMode(GameMode.SURVIVAL);
-							PrefixAdder.sendMessage(sender, "Successfully changed game mode.");
-							break;
-						case "spectator":
-							target.setGameMode(GameMode.SPECTATOR);
-							PrefixAdder.sendMessage(sender, "Successfully changed game mode.");
-							break;
 						case "adventure":
+						case "2":
+						case "a":
 							target.setGameMode(GameMode.ADVENTURE);
 							PrefixAdder.sendMessage(sender, "Successfully changed game mode.");
 							break;
@@ -82,51 +58,27 @@ public class GamemodeManager implements CommandExecutor {
 						PrefixAdder.sendMessage(sender, ChatColor.RED, "Player Not Found.");
 					}
 				} else switch (args[0].toLowerCase()){
+				case "creative":
+				case "1":
 				case "c":
 					((Player) sender).setGameMode(GameMode.CREATIVE);
 					PrefixAdder.sendMessage(sender, "Successfully changed game mode.");
 					break;
+				case "survival":
+				case "0":
 				case "s":
 					((Player) sender).setGameMode(GameMode.SURVIVAL);
 					PrefixAdder.sendMessage(sender, "Successfully changed game mode.");
 					break;
+				case "spectator":
+				case "3":
 				case "sp":
 					((Player) sender).setGameMode(GameMode.SPECTATOR);
 					PrefixAdder.sendMessage(sender, "Successfully changed game mode.");
 					break;
-				case "a":
-					((Player) sender).setGameMode(GameMode.ADVENTURE);
-					PrefixAdder.sendMessage(sender, "Successfully changed game mode.");
-					break;
-				case "1":
-					((Player) sender).setGameMode(GameMode.CREATIVE);
-					PrefixAdder.sendMessage(sender, "Successfully changed game mode.");
-					break;
-				case "0":
-					((Player) sender).setGameMode(GameMode.SURVIVAL);
-					PrefixAdder.sendMessage(sender, "Successfully changed game mode.");
-					break;
-				case "3":
-					((Player) sender).setGameMode(GameMode.SPECTATOR);
-					PrefixAdder.sendMessage(sender, "Successfully changed game mode.");
-					break;
-				case "2":
-					((Player) sender).setGameMode(GameMode.ADVENTURE);
-					PrefixAdder.sendMessage(sender, "Successfully changed game mode.");
-					break;
-				case "creative":
-					((Player) sender).setGameMode(GameMode.CREATIVE);
-					PrefixAdder.sendMessage(sender, "Successfully changed game mode.");
-					break;
-				case "survival":
-					((Player) sender).setGameMode(GameMode.SURVIVAL);
-					PrefixAdder.sendMessage(sender, "Successfully changed game mode.");
-					break;
-				case "spectator":
-					((Player) sender).setGameMode(GameMode.SPECTATOR);
-					PrefixAdder.sendMessage(sender, "Successfully changed game mode.");
-					break;
 				case "adventure":
+				case "2":
+				case "a":
 					((Player) sender).setGameMode(GameMode.ADVENTURE);
 					PrefixAdder.sendMessage(sender, "Successfully changed game mode.");
 					break;
