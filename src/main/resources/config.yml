@@ -6,7 +6,7 @@
 
 AFKSettings:
     # AFKまでの時間を設定(秒)
-    AFKTime: 60
+    AFKTime: 300
 
     # AFKMassage %Player% でプレイヤー名を代入
     AFKMessage: "%Player% &eは離席中です。"
@@ -15,5 +15,5 @@ AFKSettings:
     # AFK時にダメージを受けないようにするか
     EnableGodMode: true
 
-    # AFK時に押せないようにするか
-    EnableAntiPush: true
+    # AFK時に押せないようにするか(無効化中)
+    EnableAntiPush: false

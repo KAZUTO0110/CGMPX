@@ -6,7 +6,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 import net.fumyatan.cgmpx.Manager.VanishManager;
-import net.fumyatan.cgmpx.Manager.Premise.CountryGetManager;
 
 public class PlayerJoinEventListener implements Listener {
 
@@ -16,10 +15,6 @@ public class PlayerJoinEventListener implements Listener {
 		for (String p : VanishManager.vanisher){
 			e.getPlayer().hidePlayer(Bukkit.getPlayer(p));
 		}
-		
-		// JoinCountryの取得
-		CountryGetManager.JoinCountry(e.getPlayer());
-		CountryGetManager.JoinCountryCode(e.getPlayer());		
 	}
 
 }

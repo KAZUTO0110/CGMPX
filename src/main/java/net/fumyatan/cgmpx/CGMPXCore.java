@@ -4,7 +4,6 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import net.fumyatan.cgmpx.Listener.AsyncPlayerChatEventListener;
-import net.fumyatan.cgmpx.Listener.DebugCommandListener;
 import net.fumyatan.cgmpx.Listener.PlayerDeathEventListener;
 import net.fumyatan.cgmpx.Listener.PlayerJoinEventListener;
 import net.fumyatan.cgmpx.Listener.PlayerMoveEventListener;
@@ -21,7 +20,6 @@ import net.fumyatan.cgmpx.Manager.InventoryManager;
 import net.fumyatan.cgmpx.Manager.NicknameManager;
 import net.fumyatan.cgmpx.Manager.TeleportManager;
 import net.fumyatan.cgmpx.Manager.VanishManager;
-import net.fumyatan.cgmpx.Manager.WhoisManager;
 import net.fumyatan.cgmpx.Sender.ServerInfoSender;
 import net.fumyatan.cgmpx.Timer.Timer;
 
@@ -60,8 +58,6 @@ public class CGMPXCore extends JavaPlugin{
 		getCommand("tpa").setExecutor(new TeleportManager());
 		getCommand("tphere").setExecutor(new TeleportManager());
 		getCommand("serverinfo").setExecutor(new ServerInfoSender());
-		getCommand("cgmpdebug").setExecutor(new DebugCommandListener());
-		getCommand("whois").setExecutor(new WhoisManager());
 		getCommand("workbench").setExecutor(new InventoryManager());
 		getCommand("enderchest").setExecutor(new InventoryManager());
 

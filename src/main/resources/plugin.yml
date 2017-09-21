@@ -46,9 +46,6 @@ commands:
   cgmpdebug:
     description: PluginDebugCommand.
     aliases: [dbg]
-  whois:
-    description: Get Player Info.
-    aliases: [ws]
   workbench:
     description: Open Workbench.
     aliases: [wb, wbc]
@@ -85,7 +82,6 @@ Permissions:
       cgmpx.sinfo: true
       cgmpx.wbc: true
       cgmpx.ec: true
-      cgmpx.whois: true
   cgmpx.god.*:
     children:
       cgmpx.god: true
