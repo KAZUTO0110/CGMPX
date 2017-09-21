@@ -66,7 +66,7 @@ public class GamemodeManager implements CommandExecutor {
 					break;
 				case "survival":
 				case "0":
-				case "s"
+				case "s":
 					((Player) sender).setGameMode(GameMode.SURVIVAL);
 					PrefixAdder.sendMessage(sender, "Successfully changed game mode.");
 					break;
