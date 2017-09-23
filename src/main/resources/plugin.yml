@@ -14,6 +14,8 @@ commands:
     aliases: [gm, gms]
   day:
     description: Set the time in the morning.
+  sun:
+    description: Switched Weather.
   god:
     description: Switched God Enable.
   fly:
@@ -41,6 +43,8 @@ commands:
     aliases: [tpall]
   tphere:
     description: Teleport to You.
+  rain:
+    description: Switched Weather.
   serverinfo:
     description: Show ServerInfo.
   cgmpdebug:
@@ -74,11 +78,13 @@ Permissions:
       cgmpx.nick: true
       cgmpx.nick.force: true
       cgmpx.nick.admin: true
-      cgmpx.day: true
+      cgmpx.night: true
+      cgmpx.rain: true
       cgmpx.vanish: true
       cgmpx.fullvanish: true
       cgmpx.vanish.bypass: true
       cgmpx.freeze: true
+      cgmpx.san: true
       cgmpx.tp: true
       cgmpx.tp.all: true
       cgmpx.tp.here: true

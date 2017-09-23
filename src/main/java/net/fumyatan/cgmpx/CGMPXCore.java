@@ -22,6 +22,7 @@ import net.fumyatan.cgmpx.Manager.NicknameManager;
 import net.fumyatan.cgmpx.Manager.TeleportManager;
 import net.fumyatan.cgmpx.Manager.TimeManager;
 import net.fumyatan.cgmpx.Manager.VanishManager;
+import net.fumyatan.cgmpx.Manager.WeatherManager;
 import net.fumyatan.cgmpx.Manager.WhoisManager;
 import net.fumyatan.cgmpx.Sender.ServerInfoSender;
 import net.fumyatan.cgmpx.Timer.Timer;
@@ -62,6 +63,8 @@ public class CGMPXCore extends JavaPlugin{
 		getCommand("tphere").setExecutor(new TeleportManager());
 		getCommand("serverinfo").setExecutor(new ServerInfoSender());
 		getCommand("cgmpdebug").setExecutor(new DebugCommandListener());
+		getCommand("sun").setExecutor(new WeatherManager());
+		getCommand("rain").setExecutor(new WeatherManager());
 		getCommand("whois").setExecutor(new WhoisManager());
 		getCommand("workbench").setExecutor(new InventoryManager());
 		getCommand("enderchest").setExecutor(new InventoryManager());
