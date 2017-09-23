@@ -78,7 +78,7 @@ Permissions:
       cgmpx.fullvanish: true
       cgmpx.vanish.bypass: true
       cgmpx.freeze: true
-      cgmpx.san: true
+      cgmpx.sun: true
       cgmpx.tp: true
       cgmpx.tp.all: true
       cgmpx.tp.here: true

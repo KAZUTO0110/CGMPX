@@ -13,8 +13,8 @@ public class WeatherManager implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		if (sender instanceof Player) {
 			Player p = (Player) sender;
-			if (command.getName().equalsIgnoreCase("san")){
-				if (sender.hasPermission("cgmpx.san")){
+			if (command.getName().equalsIgnoreCase("sun")){
+				if (sender.hasPermission("cgmpx.sun")){
 					p.getWorld().setStorm(false);
 				}
 			} else if (command.getName().equalsIgnoreCase("rain")){
@@ -24,7 +24,7 @@ public class WeatherManager implements CommandExecutor {
 			}
 		} else {
 			for (World world : Bukkit.getWorlds()) {
-				if (command.getName().equalsIgnoreCase("san")) {
+				if (command.getName().equalsIgnoreCase("sun")) {
 					world.setStorm(false);
 				} else if (command.getName().equalsIgnoreCase("rain")) {
 					world.setStorm(true);
