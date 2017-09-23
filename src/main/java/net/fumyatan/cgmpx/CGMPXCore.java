@@ -61,7 +61,8 @@ public class CGMPXCore extends JavaPlugin{
 		getCommand("tphere").setExecutor(new TeleportManager());
 		getCommand("serverinfo").setExecutor(new ServerInfoSender());
 		getCommand("workbench").setExecutor(new InventoryManager());
-		getCommand("weather").setExecutor(new WeatherManager());
+		getCommand("sun").setExecutor(new WeatherManager());
+		getCommand("rain").setExecutor(new WeatherManager());
 		getCommand("enderchest").setExecutor(new InventoryManager());
 
 		// イベントの登録
