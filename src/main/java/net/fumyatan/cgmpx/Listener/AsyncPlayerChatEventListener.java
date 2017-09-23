@@ -13,7 +13,6 @@ public class AsyncPlayerChatEventListener implements Listener {
 
 	@EventHandler
 	public void onAsyncPlayerChatEvent(AsyncPlayerChatEvent e){
-		Player p = e.getPlayer();
 		AFKManager.resetAFKTime(e.getPlayer());
 	}
 
