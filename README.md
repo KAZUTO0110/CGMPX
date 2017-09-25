@@ -5,16 +5,16 @@ Server Manage Plugin
 	  afk:
 	    description: Switched  AFK Enable.
 	  back:
-		description: Teleport to LastActionPoint.
+	    description: Teleport to LastActionPoint.
 	  cgm:
-	    description: Switched Gamemode.
+	    description: Switch gamemode.
 	    aliases: [gm, gms]
 	  god:
-	    description: Switched God Enable.
+	    description: Toggle God mode.
 	  fly:
-	    description: Switched Fly Enable.
+	    description: Toggle fly mode.
 	  heal:
-	    description: Will Heal You.
+	    description: Heal player
 	  nick:
 	    description: Set Nickname.
 	  forcenick:
@@ -22,11 +22,11 @@ Server Manage Plugin
 	  nickreset:
 	    description: Reset Nickname.
 	  vanish:
-	    description: Switched Vanish.
+	    description: Toggle vanish.
 	  fullvanish:
-	    description: Switched Vanish.
+	    description: Toggle full vanish.
 	  freeze:
-	    description: Freeze players.
+	    description: Freeze player.
 	  tp:
 	    description: Teleport to Player.
 	  tpa:
@@ -46,7 +46,7 @@ Server Manage Plugin
 	    description: Open Workbench.
 	    aliases: [wb, wbc]
 	  enderchest:
-	    description: Open EnderChest
+	    description: Open EnderChest.
 	    aliases: [ec]
 
 ## Permissions
