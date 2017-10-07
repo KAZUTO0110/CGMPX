@@ -12,7 +12,6 @@ public class InventoryManager implements CommandExecutor {
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-		// TODO 自動生成されたメソッド・スタブ
 		switch (command.getName()) {
 		case "workbench":
 			if (sender instanceof Player && sender.hasPermission("cgmpx.wbc")){

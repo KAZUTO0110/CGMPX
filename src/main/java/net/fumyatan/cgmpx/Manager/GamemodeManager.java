@@ -14,7 +14,6 @@ public class GamemodeManager implements CommandExecutor {
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-		// TODO 自動生成されたメソッド・スタブ
 		if (sender instanceof Player){
 			if (sender.hasPermission("cgmpx.cgm")){
 				if (args.length == 0){

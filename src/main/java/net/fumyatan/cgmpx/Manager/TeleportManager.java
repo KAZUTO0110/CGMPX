@@ -25,7 +25,6 @@ public class TeleportManager implements CommandExecutor {
 			Block block3 = Bukkit.getWorld(to.getWorld().getName()).getBlockAt(to.getBlockX(), y+3, to.getBlockZ());
 
 			if (y >= 0 && block.getType().equals(Material.AIR)){
-				// target.sendMessage(ChatColor.LIGHT_PURPLE + "Safeteleport Sequence Phase1");
 				while (!safe) {
 					block = Bukkit.getWorld(to.getWorld().getName()).getBlockAt(to.getBlockX(), y, to.getBlockZ());
 					block2 = Bukkit.getWorld(to.getWorld().getName()).getBlockAt(to.getBlockX(), y+2, to.getBlockZ());
@@ -42,14 +41,12 @@ public class TeleportManager implements CommandExecutor {
 							safe = true;
 							continue;
 						}
-						// target.sendMessage("Search Block: " + y + block.getType());
 						y--;
 					}
 				}
 
 				safe = false;
 
-				// target.sendMessage(ChatColor.LIGHT_PURPLE + "Safeteleport Sequence Phase2");
 				while (!safe){
 					block = Bukkit.getWorld(to.getWorld().getName()).getBlockAt(to.getBlockX(), y, to.getBlockZ());
 					block2 = Bukkit.getWorld(to.getWorld().getName()).getBlockAt(to.getBlockX(), y+2, to.getBlockZ());
@@ -67,12 +64,10 @@ public class TeleportManager implements CommandExecutor {
 							safe = true;
 							continue;
 						}
-						// target.sendMessage("Search Block: " + y + block.getType());
 						y++;
 					}
 				}
 			} else {
-				// target.sendMessage(ChatColor.LIGHT_PURPLE + "Safeteleport Sequence Phase3");
 				while (!safe){
 					block = Bukkit.getWorld(to.getWorld().getName()).getBlockAt(to.getBlockX(), y, to.getBlockZ());
 					block2 = Bukkit.getWorld(to.getWorld().getName()).getBlockAt(to.getBlockX(), y+2, to.getBlockZ());
@@ -89,7 +84,6 @@ public class TeleportManager implements CommandExecutor {
 							safe = true;
 							continue;
 						}
-						// target.sendMessage("Search Block: " + y + block.getType());
 						y++;
 					}
 				}
@@ -137,7 +131,6 @@ public class TeleportManager implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		if (command.getName().equals("tp")){
-			// TODO args.length == 4 -> 座標 / args.length == 2 -> 両方プレイヤーの場合 プレイヤー間テレポート
 			if (sender.hasPermission("cgmpx.tp")){
 				if (args.length == 4){
 					Player target = Bukkit.getPlayer(args[0]);
