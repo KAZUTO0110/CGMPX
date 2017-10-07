@@ -18,11 +18,21 @@ public class PlayerMoveEventListener implements Listener {
 
 		if (e.getFrom().getBlockX() == e.getTo().getBlockX()
 				&& e.getFrom().getBlockZ() == e.getTo().getBlockZ()
-				&& e.getFrom().getBlockY() == e.getTo().getBlockY()){
-			if (freezeuser.contains(e.getPlayer()))
-				e.setCancelled(true);
-			
-			AFKManager.resetAFKTime(e.getPlayer());
+				&& e.getFrom().getBlockY() == e.getTo().getBlockY())
+			return;
+
+		if (freezeuser.contains(e.getPlayer()))
+			e.setCancelled(true);
+
+		if (AFKManager.antipush) {
+			if (AFKManager.isAFK(e.getPlayer())) {
+				if (!e.getPlayer().getNearbyEntities(1, 1, 1).isEmpty()) {
+					e.setCancelled(true);
+					return;
+				}
+			}
 		}
+
+		AFKManager.resetAFKTime(e.getPlayer());
 	}
 }

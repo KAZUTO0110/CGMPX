@@ -15,5 +15,5 @@ AFKSettings:
     # AFK時にダメージを受けないようにするか
     EnableGodMode: true
 
-    # AFK時に押せないようにするか(無効化中)
+    # AFK時に押せないようにするか
     EnableAntiPush: false

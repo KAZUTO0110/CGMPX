@@ -38,7 +38,7 @@ public class CGMPXCore extends JavaPlugin{
 		AFKManager.afkmessage = getConfig().getString("AFKSettings.AFKMessage");
 		AFKManager.backmessage = getConfig().getString("AFKSettings.BackMessage");
 		AFKManager.god = getConfig().getBoolean("AFKSettings.EnableGodMode");
-		// AFKManager.antipush = getConfig().getBoolean("AFKSettings.EnableAntiPush");
+		AFKManager.antipush = getConfig().getBoolean("AFKSettings.EnableAntiPush");
 		AFKManager.antipush = false;
 
 		// コマンド登録
