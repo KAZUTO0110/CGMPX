@@ -26,7 +26,7 @@ public class PlayerMoveEventListener implements Listener {
 
 		if (AFKManager.antipush) {
 			if (AFKManager.isAFK(e.getPlayer())) {
-				if (!e.getPlayer().getNearbyEntities(1, 1, 1).isEmpty()) {
+				if (!e.getPlayer().getNearbyEntities(4, 4, 4).isEmpty()) {
 					e.setCancelled(true);
 					return;
 				}
