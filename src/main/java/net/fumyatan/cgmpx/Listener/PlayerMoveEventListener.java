@@ -24,6 +24,7 @@ public class PlayerMoveEventListener implements Listener {
 		if (freezeuser.contains(e.getPlayer()))
 			e.setCancelled(true);
 
+		//TODO 正常に判定が入らない
 		if (AFKManager.antipush) {
 			if (AFKManager.isAFK(e.getPlayer())) {
 				if (!e.getPlayer().getNearbyEntities(4, 4, 4).isEmpty()) {
